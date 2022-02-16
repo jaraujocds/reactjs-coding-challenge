@@ -4,10 +4,10 @@ const CharacterCard = ({ name, image, onClick = () => {} }) => {
   return (
     <div
       onClick={onClick}
-      className=" bg-white rounded-xl shadow-sm ease-in-out transition-all hover:shadow-lg flex flex-col p-5 hover:cursor-pointer items-center justify-center hover:scale-105"
+      className="flex flex-col items-center justify-center p-5 transition-all ease-in-out bg-white shadow-sm rounded-xl hover:shadow-lg hover:cursor-pointer hover:scale-105 max-w-max justify-items-center"
     >
-      <img alt={name} src={image} className="rounded-lg flex object-cover" />
-      <p className="font-bold text-2xl text-center uppercase mt-5">{name}</p>
+      <img alt={name} src={image} className="flex object-cover rounded-lg" />
+      <p className="mt-5 text-2xl font-bold text-center uppercase">{name}</p>
     </div>
   );
 };

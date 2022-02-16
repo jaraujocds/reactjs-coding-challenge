@@ -37,7 +37,7 @@ const Character = () => {
       <Button small onClick={goBack}>
         {"<"} Back
       </Button>
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center mt-5">
         {pending && <p className="text-xl font-bold text-center">Loading...</p>}
         {error && <p className="text-xl font-bold text-center">{error}</p>}
         {!pending && !error && !character && (

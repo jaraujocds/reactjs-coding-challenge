@@ -35,7 +35,7 @@ const Home = () => {
 
   return (
     <PageLayout>
-      <div className="grid grid-cols-3 gap-20 p-20">
+      <div className="grid grid-cols-1 gap-5 p-5 md:p-10 lg:p-20 sm:grid-cols-3 lg:gap-20 justify-items-center">
         {characters?.map(({ id, name, image }) => (
           <Link key={`character-${id}`} to={`character/${id}`}>
             <CharacterCard name={name} image={image} />
@@ -49,7 +49,7 @@ const Home = () => {
         <p className="text-xl font-bold text-center">No characters found</p>
       )}
 
-      <div className="flex flex-row items-center justify-between px-20 mt-10 mb-20">
+      <div className="flex flex-col items-center justify-between px-20 mt-10 mb-20 gap-y-2 sm:items-center sm:flex-row">
         <Button onClick={prevPage} disabled={!pagination?.prev}>
           {"<"} Previous page
         </Button>
