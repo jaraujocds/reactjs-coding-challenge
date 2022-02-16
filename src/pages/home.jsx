@@ -1,9 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams, useSearchParams } from "react-router-dom";
-import Button from "../components/ui/button";
-import CharacterCard from "../components/ui/character-card";
-import PageLayout from "../components/ui/page-layout";
+import { Link, useSearchParams } from "react-router-dom";
+
 import {
   fetchCharacters,
   selectCharacters,
@@ -11,6 +9,10 @@ import {
   selectCharactersPagination,
   selectCharactersError,
 } from "../redux/rickAndMorty/charactersSlice";
+
+import Button from "../components/ui/button";
+import CharacterCard from "../components/ui/character-card";
+import PageLayout from "../components/ui/page-layout";
 
 const Home = () => {
   const dispatch = useDispatch();
