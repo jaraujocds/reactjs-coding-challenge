@@ -6,10 +6,12 @@ const Header = () => {
   const { t, i18n } = useTranslation();
 
   const setSpanish = () => {
+    window.localStorage.setItem("preferredLang", "es");
     i18n.changeLanguage("es");
   };
 
   const setEnglish = () => {
+    window.localStorage.setItem("preferredLang", "en");
     i18n.changeLanguage("en");
   };
 
