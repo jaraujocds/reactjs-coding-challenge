@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import {
   fetchCharacters,
@@ -22,6 +23,8 @@ const Home = () => {
   const pending = useSelector(selectCharactersPending);
   const pagination = useSelector(selectCharactersPagination);
 
+  const { t } = useTranslation();
+
   const { page, goToNextPage, goToPrevPage, hasNextPage, hasPreviousPage } =
     usePagination({
       totalPages: pagination?.pages,
@@ -40,19 +43,23 @@ const Home = () => {
         ))}
       </div>
 
-      {pending && <p className="text-xl font-bold text-center">Loading...</p>}
+      {pending && (
+        <p className="text-xl font-bold text-center">{t("Loading...")}</p>
+      )}
       {error && <p className="text-xl font-bold text-center">{error}</p>}
       {!pending && !error && !characters?.length && (
-        <p className="text-xl font-bold text-center">No characters found</p>
+        <p className="text-xl font-bold text-center">
+          {t("No characters found")}
+        </p>
       )}
 
       <div className="flex flex-col items-center justify-between px-20 mt-10 mb-20 gap-y-2 sm:items-center sm:flex-row">
         <Button onClick={goToPrevPage} disabled={!hasPreviousPage}>
-          {"<"} Previous page
+          {"<"} {t("Previous Page")}
         </Button>
 
         <Button onClick={goToNextPage} disabled={!hasNextPage}>
-          Next page {">"}
+          {t("Next Page")} {">"}
         </Button>
       </div>
     </PageLayout>

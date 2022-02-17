@@ -1,0 +1,36 @@
+{
+  "en": {
+    "translation": {
+      "Rick and Morty Characters": "Rick and Morty Characters",
+      "Previous Page": "Previous Page",
+      "Next Page": "Next Page",
+      "Gender": "Gender",
+      "Status": "Status",
+      "Species": "Species",
+      "Type": "Type",
+      "Location": "Location",
+      "Episodes appearance": "Episodes appearance",
+      "Loading...": "Loading...",
+      "No characters found": "No characters found",
+      "Back": "Back",
+      "Character not found": "Character not found"
+    }
+  },
+  "es": {
+    "translation": {
+      "Rick and Morty Characters": "Personajes de Rick and Morty",
+      "Previous Page": "Página Anterior",
+      "Next Page": "Página Siguiente",
+      "Gender": "Género",
+      "Status": "Estado",
+      "Species": "Especie",
+      "Type": "Tipo",
+      "Location": "Ubicación",
+      "Episodes appearance": "Apariencias en episodios",
+      "Loading...": "Cargando...",
+      "No characters found": "No se encontraron personajes",
+      "Back": "Atrás",
+      "Character not found": "Personaje no encontrado"
+    }
+  }
+}

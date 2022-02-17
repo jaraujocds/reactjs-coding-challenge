@@ -11,11 +11,13 @@ import {
 
 import PageLayout from "../components/ui/page-layout";
 import Button from "../components/ui/button";
+import { useTranslation } from "react-i18next";
 
 const Character = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const character = useSelector(selectCurrentCharacter);
   const error = useSelector(selectCharactersError);
@@ -35,13 +37,17 @@ const Character = () => {
   return (
     <PageLayout>
       <Button small onClick={goBack}>
-        {"<"} Back
+        {"<"} {t("Back")}
       </Button>
       <div className="flex flex-col items-center mt-5">
-        {pending && <p className="text-xl font-bold text-center">Loading...</p>}
+        {pending && (
+          <p className="text-xl font-bold text-center">{t("Loading...")}</p>
+        )}
         {error && <p className="text-xl font-bold text-center">{error}</p>}
         {!pending && !error && !character && (
-          <p className="text-xl font-bold text-center">Character not found</p>
+          <p className="text-xl font-bold text-center">
+            {t("Character not found")}
+          </p>
         )}
 
         {!pending && character?.id && (
@@ -56,12 +62,15 @@ const Character = () => {
               <p className="my-5 text-2xl font-bold text-center uppercase">
                 {name}
               </p>
-              <CharProp label="Gender" value={gender} />
-              <CharProp label="Status" value={status} />
-              <CharProp label="Species" value={species} />
-              {type && <CharProp label="Type" value={type} />}
-              <CharProp label="Location" value={location?.name} />
-              <CharProp label="Episodes appearance" value={episode?.length} />
+              <CharProp label={t("Gender")} value={gender} />
+              <CharProp label={t("Status")} value={status} />
+              <CharProp label={t("Species")} value={species} />
+              {type && <CharProp label={t("Type")} value={type} />}
+              <CharProp label={t("Location")} value={location?.name} />
+              <CharProp
+                label={t("Episodes appearance")}
+                value={episode?.length}
+              />
             </div>
           </div>
         )}
