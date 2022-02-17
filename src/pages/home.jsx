@@ -13,6 +13,7 @@ import {
 import Button from "../components/ui/button";
 import CharacterCard from "../components/ui/character-card";
 import PageLayout from "../components/ui/page-layout";
+import usePagination from "../hooks/usePagination";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -21,17 +22,13 @@ const Home = () => {
   const pending = useSelector(selectCharactersPending);
   const pagination = useSelector(selectCharactersPagination);
 
-  const [searchParams, setSearchParams] = useSearchParams();
-  const page = searchParams.get("page") || 1;
+  const { page, goToNextPage, goToPrevPage, hasNextPage, hasPreviousPage } =
+    usePagination({
+      totalPages: pagination?.pages,
+      scrollToTop: true,
+    });
 
   useEffect(() => dispatch(fetchCharacters(page)), [dispatch, page]);
-
-  const prevPage = async () => {
-    if (page > 1) setSearchParams({ page: Number(page) - 1 });
-  };
-  const nextPage = async () => {
-    if (page < pagination?.pages) setSearchParams({ page: Number(page) + 1 });
-  };
 
   return (
     <PageLayout>
@@ -50,11 +47,11 @@ const Home = () => {
       )}
 
       <div className="flex flex-col items-center justify-between px-20 mt-10 mb-20 gap-y-2 sm:items-center sm:flex-row">
-        <Button onClick={prevPage} disabled={!pagination?.prev}>
+        <Button onClick={goToPrevPage} disabled={!hasPreviousPage}>
           {"<"} Previous page
         </Button>
 
-        <Button onClick={nextPage} disabled={!pagination?.next}>
+        <Button onClick={goToNextPage} disabled={!hasNextPage}>
           Next page {">"}
         </Button>
       </div>
