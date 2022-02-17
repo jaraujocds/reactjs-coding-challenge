@@ -1,6 +1,7 @@
 ![rick and morty header](rick-and-morty.jpeg)
 
 # Rick and Morty characters viewer app
+Live demo: https://reactjs-coding-challenge.vercel.app/
 
 ---
 
